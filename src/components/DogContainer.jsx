@@ -18,6 +18,25 @@ class DogContainer extends Component {
     this.requestPhoto();
   }
 
+  shouldComponentUpdate() {
+    const { dogObj: { message = '' } = {} } = this.state;
+
+    return !message.includes('terrier');
+  }
+
+  componentDidUpdate(_prevProps, prevState) {
+    const { dogObj: { message = '' } = {} } = this.state;
+    const { dogObj: { message: prevMsg = '' } = {} } = prevState;
+
+    const dogType = message.split('/')[4];
+    const prevDogType = prevMsg.split('/')[4];
+
+    // eslint-disable-next-line no-alert
+    if (dogType && dogType !== prevDogType) alert(`Raça: ${dogType}`);
+
+    sessionStorage.setItem('photoUrl', message);
+  }
+
   requestPhoto() {
     this.setState({ loading: true }, () => {
       const url = 'https://dog.ceo/api/breeds/image/random';
