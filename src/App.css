@@ -6,18 +6,49 @@
 .dog-photo {
   width: max-content;
   margin: 2rem auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .dog-photo img {
-  width: 500px;
+  width: 40vw;
 }
 
-.button-container {
+.container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 1rem;
 }
 
-.button-container button {
+.container button {
   padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.container .input-container {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.input-container input {
+  padding: 1rem;
+  width: 50%;
+  text-align: center;
+  border: 1px solid #46496b;
+  border-radius: 1.5rem;
+  margin-right: 1rem;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #2a2c44;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 1.5rem;
+}
+
+.input-container button {
+  margin: 0;
 }
